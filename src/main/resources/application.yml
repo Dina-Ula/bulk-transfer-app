@@ -1,0 +1,24 @@
+application:
+  ldap:
+    url: ldaps://${OPENDJ_FIRST_FQDN}:${OPENDJ_PORT_LDAPS}
+    baseDN: "ou=people,dc=sw,dc=lbg,dc=com"
+    bindDN: "cn=Directory Manager"
+    bindPassword: ${OPENDJ_ROOT_PASSWORD}
+    trust-store: ${OPENDJ_CERTS_DIR}/${OPENDJ_CERT_FILE}
+    trust-store-password: ${OPENDJ_CERT_STOREPASS}
+  emailEnabled: ${EMAIL_ENABLED}
+  emailFrom: ${EMAIL_FROM}
+  emailTo: ${EMAIL_TO}
+
+spring:
+  mail:
+    host: ${EMAIL_HOST}
+    port: ${EMAIL_PORT}
+    username:
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: false
+        starttls:
+          enable: ${EMAIL_STARTTLS_ENABLED}
